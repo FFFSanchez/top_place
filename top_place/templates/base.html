@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html> 
+<html lang="ru">          
+  <head>
+    <title>Rokono</title>
+<meta charset="utf-8">
+<link type="text/css" rel="stylesheet" href="{% static 'styles/style.css' %}">
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<!--[if IE 6]>
+<style>body { behavior: url("styles/ie6-hover-fix.htc"); }</style>
+<script type="text/javascript" src="js/ie6-transparency.js"></script>
+<script>DD_belatedPNG.fix('.circle, .read-more, .blue-bullets li, #sidebar .sidebar-button');</script>
+<link type="text/css" rel="stylesheet" href="styles/ie6.css" />
+<![endif]-->
+<!--[if IE 7]><link type="text/css" rel="stylesheet" href="styles/ie7.css" /><![endif]-->  
+  </head>
+  <body class="page">
+    <div id="wrap">    
+    <header>
+      {% include 'includes/header.html' %}
+    </header>
+    <main>
+      {% block content %}
+        Контент не подвезли
+      {% endblock content %}
+    </main>
+    <footer>
+      {% include 'includes/footer.html' %} 
+    </footer>
+</div>
+<!--end wrap-->
+  </body>
+</html> 
