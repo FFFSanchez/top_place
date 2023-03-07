@@ -1,57 +1,68 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %}
 {% load static %}
-
 {% block content %}
-  <div id="featured-section">
-    <h2>[ADD HEADLINE]</h2>
-    <div id="circles">
-      <div class="red-circle circle first">
-        <h3><em>[ADD TITLE]</em></h3>
-        <p>[ADD OVERVIEW]</p>
-      </div>
-      <!--end red-circle-->
-      <div class="pink-circle circle">
-        <h3><em>[ADD TITLE]</em></h3>
-        <p>[ADD OVERVIEW]</p>
-      </div>
-      <!--end red-circle-->
-      <div class="orange-circle circle">
-        <h3><em>[ADD TITLE]</em></h3>
-        <p>[ADD OVERVIEW]</p>
-      </div>
-      <!--end red-circle-->
-      <div class="yellow-circle circle">
-        <h3><em>[ADD TITLE]</em></h3>
-        <p>[ADD OVERVIEW]</p>
-      </div>
-      <!--end red-circle-->
+    <div id="featured-section">
+        <h2>[ADD HEADLINE]</h2>
+        <div id="circles">
+            <div class="red-circle circle first">
+                <h3>
+                    <em>[ADD TITLE]</em>
+                </h3>
+                <p>[ADD OVERVIEW]</p>
+            </div>
+            <!--end red-circle-->
+            <div class="pink-circle circle">
+                <h3>
+                    <em>[ADD TITLE]</em>
+                </h3>
+                <p>[ADD OVERVIEW]</p>
+            </div>
+            <!--end red-circle-->
+            <div class="orange-circle circle">
+                <h3>
+                    <em>[ADD TITLE]</em>
+                </h3>
+                <p>[ADD OVERVIEW]</p>
+            </div>
+            <!--end red-circle-->
+            <div class="yellow-circle circle">
+                <h3>
+                    <em>[ADD TITLE]</em>
+                </h3>
+                <p>[ADD OVERVIEW]</p>
+            </div>
+            <!--end red-circle-->
+        </div>
+        <!--end circles-->
     </div>
-    <!--end circles-->
-  </div>
-  <!--end featured-section-->
-  <div id="frontpage-main">
-    <div id="overview" class="frontpage-section">
-      <h3>[ADD TITLE]</h3>
-      <p>[ADD OVERVIEW]</p>
-      <ul class="blue-bullets">
-        <li>[ADD CONTENT]</li>
-        <li>[ADD CONTENT]</li>
-        <li>[ADD CONTENT]</li>
-        <li>[ADD CONTENT]</li>
-      </ul>
+    <!--end featured-section-->
+    <div id="frontpage-main">
+        <div id="overview" class="frontpage-section">
+            <h3>[ADD TITLE]</h3>
+            <p>[ADD OVERVIEW]</p>
+            <ul class="blue-bullets">
+                <li>[ADD CONTENT]</li>
+                <li>[ADD CONTENT]</li>
+                <li>[ADD CONTENT]</li>
+                <li>[ADD CONTENT]</li>
+            </ul>
+        </div>
+        <!--end frontpage-content-->
+        <div id="latest-article" class="frontpage-section">
+            <h3>Latest Article</h3>
+            <a class="article-title" href="#">[ADD ARTICLE TITLE]</a>
+            <p class="meta">Posted By: [ADD AUTHOR NAME]</p>
+            <p>[ADD ARTICLE OVERVIEW]</p>
+            <a class="read-more" href="#">Read More &raquo;</a>
+        </div>
+        <!--end frontpage-sidebar-->
     </div>
-    <!--end frontpage-content-->
-    <div id="latest-article" class="frontpage-section">
-      <h3>Latest Article</h3>
-      <a class="article-title" href="#">[ADD ARTICLE TITLE]</a>
-      <p class="meta">Posted By: [ADD AUTHOR NAME]</p>
-      <p>[ADD ARTICLE OVERVIEW]</p>
-      <a class="read-more" href="#">Read More &raquo;</a> </div>
-    <!--end frontpage-sidebar-->
-  </div>
-  <!--end frontpage-main-->
-  {% endblock content %}
-
-<div class="cache-images"> <img src="{% static 'images/red-button-bg.png' %}" width="0" height="0" alt="" /> </div>
+    <!--end frontpage-main-->
+{% endblock content %}
+<div class="cache-images">
+    <img src="{% static 'images/red-button-bg.png' %}"
+         width="0"
+         height="0"
+         alt=""/>
+</div>
 <!--end cache-images-->
-
