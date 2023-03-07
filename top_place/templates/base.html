@@ -8,6 +8,27 @@
             {% endblock title %}
         </title>
         <meta charset="utf-8">
+        <!-- Сайт готов работать с мобильными устройствами -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Загружаем фав-иконки -->
+        <!-- <link rel="icon" href="{% static 'images/fav/favicon.ico' %}" type="image"> -->
+        <link rel="icon"
+              type="image/png"
+              sizes="192x192"
+              href="{% static 'images/fav/android-icon-192x192.png' %}">
+        <link rel="icon"
+              type="image/png"
+              sizes="32x32"
+              href="{% static 'images/fav/favicon-32x32.png' %}">
+        <link rel="icon"
+              type="image/png"
+              sizes="96x96"
+              href="{% static 'images/fav/favicon-96x96.png' %}">
+        <link rel="icon"
+              type="image/png"
+              sizes="16x16"
+              href="{% static 'images/fav/favicon-16x16.png' %}">
+        <!-- Загружаем стили -->
         <link type="text/css"
               rel="stylesheet"
               href="{% static 'styles/style.css' %}">
