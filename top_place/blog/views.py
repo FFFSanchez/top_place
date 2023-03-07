@@ -1,10 +1,13 @@
 from django.shortcuts import render
+from .models import Group, Article
 
 
 def index(request):
+    articles = Article.objects.all()
     template = 'blog/index.html'
     context = {
-        'text': 'Кружочки'
+        'text': 'Кружочки',
+        'articles': articles
     }
     return render(request, template, context)
 
@@ -26,9 +29,10 @@ def services(request):
 
 
 def articles(request):
+    articles = Article.objects.all()
     template = 'blog/articles.html'
     context = {
-        'text': 'Кружочки'
+        'articles': articles
     }
     return render(request, template, context)
 

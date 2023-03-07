@@ -6,9 +6,9 @@
         <div id="circles">
             <div class="black-circle circle first">
                 <h3>
-                    <em>[ADD TITLE]</em>
+                    <em>Автор {{ articles.first.author }}</em>
                 </h3>
-                <p>[ADD OVERVIEW]</p>
+                <p>{% for art in articles %} {{ art }}{% endfor %}</p>
             </div>
             <!--end red-circle-->
             <div class="black-circle circle">
@@ -22,7 +22,7 @@
                 <h3>
                     <em>[ADD TITLE]</em>
                 </h3>
-                <p>[ADD OVERVIEW]</p>
+                <p></p>
             </div>
             <!--end red-circle-->
             <div class="black-circle circle">

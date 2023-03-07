@@ -42,7 +42,7 @@ class Article(models.Model):
 
     def __str__(self):
         # выводим текст поста
-        return self.text[:15]
+        return self.text[:25]
 
 
 class Group(models.Model):

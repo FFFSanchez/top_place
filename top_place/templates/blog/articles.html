@@ -6,50 +6,20 @@
 {% block content %}
   <div id="main">
     <div id="content">
+      {% for article in articles %}
       <div class="article">
         <h3 class="article-title">
-          <a href="#">[ADD ARTICLE TITLE]</a>
+          <a href="#">{{ article.text }}</a>
         </h3>
-        <h3 class="article-meta">[ADD AUTHOR NAME] / [ADD PUBLICATION DATE]</h3>
+        <h3 class="article-meta">{{ article.author }} / {{ article.pub_date|date:"d.m.Y H:i" }}</h3>
         <p>
           [ADD ARTICLE OVERVIEW] <a href="#" class="more-link">Read Full Article &raquo;</a>
         </p>
       </div>
-      <!--end article-->
       <div class="article-line"></div>
-      <div class="article">
-        <h3 class="article-title">
-          <a href="#">[ADD ARTICLE TITLE]</a>
-        </h3>
-        <h3 class="article-meta">[ADD AUTHOR NAME] / [ADD PUBLICATION DATE]</h3>
-        <p>
-          [ADD ARTICLE OVERVIEW] <a href="#" class="more-link">Read Full Article &raquo;</a>
-        </p>
-      </div>
+      {% endfor %}
       <!--end article-->
-      <div class="article-line"></div>
-      <div class="article">
-        <h3 class="article-title">
-          <a href="#">[ADD ARTICLE TITLE]</a>
-        </h3>
-        <h3 class="article-meta">[ADD AUTHOR NAME] / [ADD PUBLICATION DATE]</h3>
-        <p>
-          [ADD ARTICLE OVERVIEW] <a href="#" class="more-link">Read Full Article &raquo;</a>
-        </p>
-      </div>
-      <!--end article-->
-      <div class="article-line"></div>
-      <div class="article">
-        <h3 class="article-title">
-          <a href="#">[ADD ARTICLE TITLE]</a>
-        </h3>
-        <h3 class="article-meta">[ADD AUTHOR NAME] / [ADD PUBLICATION DATE]</h3>
-        <p>
-          [ADD ARTICLE OVERVIEW] <a href="#" class="more-link">Read Full Article &raquo;</a>
-        </p>
-      </div>
-      <!--end article-->
-      <div class="article-line"></div>
+
       <div class="article">
         <h3 class="article-title">
           <a href="#">[ADD ARTICLE TITLE]</a>
