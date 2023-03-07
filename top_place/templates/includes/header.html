@@ -8,13 +8,13 @@
                 <a href="{% url 'blog:index' %}">Home</a>
             </li>
             <li>
-                <a href="services.html">Services</a>
+                <a href="{% url 'blog:services' %}">Services</a>
             </li>
             <li>
-                <a href="portfolio.html">Portfolio</a>
+                <a href="{% url 'blog:portfolio' %}">Portfolio</a>
                 <ul class="sub-menu">
                     <li>
-                        <a href="project.html">Latest Project</a>
+                        <a href="{% url 'blog:project' %}">Latest Project</a>
                     </li>
                     <li>
                         <a href="#">Branding</a>
@@ -31,7 +31,7 @@
                 </ul>
             </li>
             <li>
-                <a href="articles.html">Articles</a>
+                <a href="{% url 'blog:articles' %}">Articles</a>
             </li>
             <li>
                 <a href="{% url 'blog:contact' %}">Contact</a>

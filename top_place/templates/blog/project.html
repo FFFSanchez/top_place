@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+  <div class="page-headline">Project -- [Project Name]</div>
+  <div id="main">
+    <div id="project-content">
+      <div id="project-header">
+        <h3 class="title">
+          Project: <span>[ADD PROJECT NAME]</span>
+        </h3>
+        <h3>
+          Start Date: <span>[ADD START DATE]</span>
+        </h3>
+        <h3>
+          Completion Date: <span>[ADD COMPLETION DATE]</span>
+        </h3>
+      </div>
+      <!--end project-header-->
+      <p>[ADD PROJECT OVERVIEW]</p>
+      <a class="read-more" href="#">Visit Website &raquo;</a>
+    </div>
+    <!--end project-content-->
+    <div id="project-image-large">
+      <!-- UPLOAD PROJECT SCREENSHOT TO THE "IMAGES" FOLDER (400PX IN WIDTH - HEIGHT CAN BE ANY SIZE) - THEN ADD THE URL TO THE SCREENSHOT BELOW -->
+      <img src="{% static 'images/400x400.gif' %}" alt="" />
+    </div>
+    <!--end project-image-large-->
+  </div>
+{% endblock content %}
