@@ -1,58 +1,61 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block title %}
+| Связь со мной
+{% endblock title %}
 {% block content %}
-    <div id="main">
-      <div id="contact-details">
-        <h3 class="title">Get In Touch</h3>
-        <p>
-          Please use the form on this page to discuss the possibility of working with us or contact us directly via phone or email.
-        </p>
-        <h3>Contact Details</h3>
-        <h4>
-          Phone: <span>[ADD PHONE NUMBER]</span>
-        </h4>
-        <h4>
-          Fax: <span>[ADD FAX NUMBER]</span>
-        </h4>
-        <h4>
-          Email: <span>[ADD EMAIL]</span>
-        </h4>
-      </div>
-      <!--end contact-details-->
-      <div id="contact-form-container">
-        <form id="contact-form" method="post" action="#">
-          <fieldset>
-            <input id="form_name"
-                   type="text"
-                   name="name"
-                   value="Name"
-                   onFocus="if(this.value=='Name'){this.value=''};"
-                   onBlur="if(this.value==''){this.value='Name'};"/>
-            <input id="form_email"
-                   type="text"
-                   name="email"
-                   value="Email"
-                   onFocus="if(this.value=='Email'){this.value=''};"
-                   onBlur="if(this.value==''){this.value='Email'};"/>
-            <input id="form_subject"
-                   type="text"
-                   name="subject"
-                   value="Subject"
-                   onFocus="if(this.value=='Subject'){this.value=''};"
-                   onBlur="if(this.value==''){this.value='Subject'};"/>
-            <textarea id="form_message" rows="10" cols="40" name="message"></textarea>
-            <input id="form_submit"
-                   class="submit"
-                   type="submit"
-                   name="submit"
-                   value="Submit &raquo;"/>
-            <div class="hide">
-              <label>Do not fill out this field</label>
-              <input name="spam_check" type="text" value="" />
-            </div>
-          </fieldset>
-        </form>
-      </div>
-      <!--end contact-form-container-->
+  <div id="main">
+    <div id="contact-details">
+      <h3 class="title">Get In Touch</h3>
+      <p>
+        Please use the form on this page to discuss the possibility of working with us or contact us directly via phone or email.
+      </p>
+      <h3>Contact Details</h3>
+      <h4>
+        Phone: <span>[ADD PHONE NUMBER]</span>
+      </h4>
+      <h4>
+        Fax: <span>[ADD FAX NUMBER]</span>
+      </h4>
+      <h4>
+        Email: <span>[ADD EMAIL]</span>
+      </h4>
     </div>
-    {% endblock content %}
+    <!--end contact-details-->
+    <div id="contact-form-container">
+      <form id="contact-form" method="post" action="#">
+        <fieldset>
+          <input id="form_name"
+                 type="text"
+                 name="name"
+                 value="Name"
+                 onFocus="if(this.value=='Name'){this.value=''};"
+                 onBlur="if(this.value==''){this.value='Name'};"/>
+          <input id="form_email"
+                 type="text"
+                 name="email"
+                 value="Email"
+                 onFocus="if(this.value=='Email'){this.value=''};"
+                 onBlur="if(this.value==''){this.value='Email'};"/>
+          <input id="form_subject"
+                 type="text"
+                 name="subject"
+                 value="Subject"
+                 onFocus="if(this.value=='Subject'){this.value=''};"
+                 onBlur="if(this.value==''){this.value='Subject'};"/>
+          <textarea id="form_message" rows="10" cols="40" name="message"></textarea>
+          <input id="form_submit"
+                 class="submit"
+                 type="submit"
+                 name="submit"
+                 value="Submit &raquo;"/>
+          <div class="hide">
+            <label>Do not fill out this field</label>
+            <input name="spam_check" type="text" value="" />
+          </div>
+        </fieldset>
+      </form>
+    </div>
+    <!--end contact-form-container-->
+  </div>
+{% endblock content %}
