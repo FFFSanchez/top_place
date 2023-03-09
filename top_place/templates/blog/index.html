@@ -9,6 +9,7 @@
                 <h3>
                     <em>Опрос {{ poll.title }}</em>
                 </h3>
+                <a href="{% url 'polls:vote' choice_id=choice.id poll_id=poll.id %}">Vote!</a>
                 <p>Voices: {{ choice.voices }}</p>
                 <p>{{ choice }}</p>
             </div>

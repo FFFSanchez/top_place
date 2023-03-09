@@ -5,7 +5,10 @@ from polls.models import Poll, Choice
 
 def index(request):
     articles = Article.objects.all()
-    poll = Poll.objects.get(pk=3)
+    # if poll_id == -1:
+    poll = Poll.objects.order_by('?').first()
+    # else:
+    #     poll = Poll.objects.get(pk=poll_id)
     template = 'blog/index.html'
     # post_list = Post.objects.filter(author__following__user=request.user)
     choice_list = Choice.objects.filter(polls__id=poll.id)
