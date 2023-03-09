@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Group, Article
+from django.core.mail import send_mail
 
 
 def index(request):
@@ -51,3 +52,15 @@ def project(request):
         'text': 'Кружочки'
     }
     return render(request, template, context)
+
+
+def contact_email(form):
+    name = form.cleaned_data['name']
+    email = form.cleaned_data['email']
+    subject = form.cleaned_data['subject']
+    message = form.cleaned_data['message']
+
+    body = f"{name} {message}"
+    send_mail(
+        subject, body, email, ["lordsanchez@yandex.ru", ],
+    )

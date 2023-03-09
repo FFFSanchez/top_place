@@ -20,7 +20,8 @@
     </div>
     <!--end contact-details-->
     <div id="contact-form-container">
-      <form id="contact-form" method="post" action="#">
+      <form id="contact-form" method="post" action="{% url 'posts:contact_email' %}">
+        {% csrf_token %}
         <fieldset>
           <input id="form_name"
                  type="text"
