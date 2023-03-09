@@ -3,7 +3,7 @@
 {% block content %}
     <div id="featured-section">
         <h2>{{ text }}</h2>
-        <div id="circles" style="width:{% if choice_list.count == 2 %}50%;{% elif choice_list.count == 3 %}75%; {% else %}100%;{%endif%}">
+        <div id="circles" style="width:{% if choice_list.count == 2 %} 50%; {% elif choice_list.count == 3 %} 75%; {% else %} 100%; {% endif %}">
             {% for choice in choice_list %}
             <div class="black-circle circle {% if forloop.first %}first{% endif %}">
                 <br>
