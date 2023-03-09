@@ -1,14 +1,23 @@
 from django.shortcuts import render
 from .models import Group, Article
-from django.core.mail import send_mail
+from polls.models import Poll, Choice
 
 
 def index(request):
     articles = Article.objects.all()
+    poll = Poll.objects.get(pk=3)
     template = 'blog/index.html'
+    # post_list = Post.objects.filter(author__following__user=request.user)
+    choice_list = Choice.objects.filter(polls__id=poll.id)
+    print(list(choice_list))
+    print(choice_list)
+    print(type(list(choice_list)))
+    print(dir(choice_list))
     context = {
-        'text': 'Кружочки',
-        'articles': articles
+        'text': 'Социальные Статистические Кружочки',
+        'articles': articles,
+        'poll': poll,
+        'choice_list': choice_list
     }
     return render(request, template, context)
 

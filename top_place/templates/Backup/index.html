@@ -3,17 +3,36 @@
 {% block content %}
     <div id="featured-section">
         <h2>{{ text }}</h2>
-        <div id="circles" style="width:{% if choice_list.count == 2 %}50%;{% elif choice_list.count == 3 %}75%; {% else %}100%;{%endif%}">
-            {% for choice in choice_list %}
-            <div class="black-circle circle {% if forloop.first %}first{% endif %}">
+        <div id="circles">
+            <div class="black-circle circle first">
                 <h3>
-                    <em>Опрос {{ poll.title }}</em>
+                    <em>Опрос {{ polls.title }}</em>
                 </h3>
-                <p>Voices: {{ choice.voices }}</p>
-                <p>{{ choice }}</p>
+                <p>{{ poll }}</p>
+                <p>{{ choice_list }}</p>
             </div>
-            <!--end circle-->
-            {% endfor %}
+            <!--end red-circle-->
+            <div class="black-circle circle">
+                <h3>
+                    <em>[ADD TITLE]</em>
+                </h3>
+                <p>[ADD OVERVIEW]</p>
+            </div>
+            <!--end red-circle-->
+            <div class="black-circle circle">
+                <h3>
+                    <em>[ADD TITLE]</em>
+                </h3>
+                <p></p>
+            </div>
+            <!--end red-circle-->
+            <div class="black-circle circle">
+                <h3>
+                    <em>[ADD TITLE]</em>
+                </h3>
+                <p>[ADD OVERVIEW]</p>
+            </div>
+            <!--end red-circle-->
         </div>
         <!--end circles-->
     </div>
