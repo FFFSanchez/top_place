@@ -36,6 +36,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'users.apps.UsersConfig',
     'polls.apps.PollsConfig',
     'contact.apps.ContactConfig',
     'blog.apps.BlogConfig',
@@ -140,3 +141,7 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = os.environ['EMAIL_HOST_USER']
 EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD']
 RECIPIENT_ADDRESS = os.environ['RECIPIENT_ADDRESS']
+
+
+LOGIN_URL = 'users:login'
+LOGIN_REDIRECT_URL = 'blog:index'

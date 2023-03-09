@@ -12,10 +12,10 @@ def index(request):
     template = 'blog/index.html'
     # post_list = Post.objects.filter(author__following__user=request.user)
     choice_list = Choice.objects.filter(polls__id=poll.id)
-    print(list(choice_list))
-    print(choice_list)
-    print(type(list(choice_list)))
-    print(dir(choice_list))
+    # print(list(choice_list))
+    # print(choice_list)
+    # print(type(list(choice_list)))
+    # print(dir(choice_list))
     context = {
         'text': 'Социальные Статистические Кружочки',
         'articles': articles,

@@ -31,12 +31,32 @@
                     </li>
                 </ul>
             </li>
-            <li class="{% if view_name  == 'blog:services' %}current_page_item{% endif %}">
+            <!-- <li class="{% if view_name  == 'blog:services' %}current_page_item{% endif %}">
                 <a href="{% url 'blog:services' %}">Services</a>
-            </li>
+            </li> -->
             <li class="{% if view_name  == 'contact:contact' %}current_page_item{% endif %}">
                 <a href="{% url 'contact:contact' %}">Связь со мной</a>
             </li>
+            {% if not request.user.is_authenticated %}
+            <li class="{% if view_name  == 'users:login' %}current_page_item{% endif %}">
+                <a href="{% url 'users:login' %}">Войти</a>
+            </li>
+            <li class="{% if view_name  == 'users:signup' %}current_page_item{% endif %}">
+                <a href="{% url 'users:signup' %}">Регистрация</a>
+            </li>
+            {% else %}
+            <li>
+                <a href="">$ {{ user.username }} $</a>
+                <ul class="sub-menu">
+                    <li>
+                        <a href="{% url 'users:password_change_form' %}">Изменить пароль</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'users:logout' %}">Выйти</a>
+                    </li>
+                </ul>
+            </li>
+            {% endif %}
         </ul>
         {% endwith %}
     </div>
