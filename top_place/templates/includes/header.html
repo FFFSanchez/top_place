@@ -8,8 +8,8 @@
             <li class="{% if view_name  == 'blog:index' %}current_page_item{% endif %}">
                 <a href="{% url 'blog:index' %}">Главная</a>
             </li>
-            <li class="{% if view_name  == 'blog:services' %}current_page_item{% endif %}">
-                <a href="{% url 'blog:services' %}">Services</a>
+            <li class="{% if view_name  == 'blog:articles' %}current_page_item{% endif %}">
+                <a href="{% url 'blog:articles' %}">Статьи</a>
             </li>
             <li class="{% if view_name  == 'blog:portfolio' %}current_page_item{% endif %}">
                 <a href="{% url 'blog:portfolio' %}">Портфолио</a>
@@ -31,8 +31,8 @@
                     </li>
                 </ul>
             </li>
-            <li class="{% if view_name  == 'blog:articles' %}current_page_item{% endif %}">
-                <a href="{% url 'blog:articles' %}">Статьи</a>
+            <li class="{% if view_name  == 'blog:services' %}current_page_item{% endif %}">
+                <a href="{% url 'blog:services' %}">Services</a>
             </li>
             <li class="{% if view_name  == 'blog:contact' %}current_page_item{% endif %}">
                 <a href="{% url 'blog:contact' %}">Связь со мной</a>
