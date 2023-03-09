@@ -13,14 +13,6 @@ def index(request):
     return render(request, template, context)
 
 
-def contact(request):
-    template = 'blog/contact.html'
-    context = {
-        'text': 'Кружочки'
-    }
-    return render(request, template, context)
-
-
 def services(request):
     template = 'blog/services.html'
     context = {
@@ -52,15 +44,3 @@ def project(request):
         'text': 'Кружочки'
     }
     return render(request, template, context)
-
-
-def contact_email(form):
-    name = form.cleaned_data['name']
-    email = form.cleaned_data['email']
-    subject = form.cleaned_data['subject']
-    message = form.cleaned_data['message']
-
-    body = f"{name} {message}"
-    send_mail(
-        subject, body, email, ["lordsanchez@yandex.ru", ],
-    )

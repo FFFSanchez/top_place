@@ -20,33 +20,39 @@
     </div>
     <!--end contact-details-->
     <div id="contact-form-container">
-      <form id="contact-form" method="post" action="{% url 'posts:contact_email' %}">
+      <form id="contact-form" method="post" action="{% url 'contact:contact' %}">
         {% csrf_token %}
+        <!--{{ form.as_p }}
+        <input id="form_submit"
+                 class="submit"
+                 type="submit"
+                 name="submit"
+                 value="Submit &raquo;"/> -->
         <fieldset>
           <input id="form_name"
                  type="text"
                  name="name"
-                 value="Name"
-                 onFocus="if(this.value=='Name'){this.value=''};"
-                 onBlur="if(this.value==''){this.value='Name'};"/>
+                 value="Ваше Имя"
+                 onFocus="if(this.value=='Ваше Имя'){this.value=''};"
+                 onBlur="if(this.value==''){this.value='Ваше Имя'};"/>
           <input id="form_email"
                  type="text"
                  name="email"
-                 value="Email"
-                 onFocus="if(this.value=='Email'){this.value=''};"
-                 onBlur="if(this.value==''){this.value='Email'};"/>
+                 value="Ваш Email"
+                 onFocus="if(this.value=='Ваш Email'){this.value=''};"
+                 onBlur="if(this.value==''){this.value='Ваш Email'};"/>
           <input id="form_subject"
                  type="text"
-                 name="subject"
-                 value="Subject"
-                 onFocus="if(this.value=='Subject'){this.value=''};"
-                 onBlur="if(this.value==''){this.value='Subject'};"/>
-          <textarea id="form_message" rows="10" cols="40" name="message"></textarea>
+                 name="inquiry"
+                 value="Тема письма"
+                 onFocus="if(this.value=='Тема письма'){this.value=''};"
+                 onBlur="if(this.value==''){this.value='Тема письма'};"/>
+          <textarea id="form_message" rows="10" cols="40" name="message" ></textarea>
           <input id="form_submit"
                  class="submit"
                  type="submit"
                  name="submit"
-                 value="Submit &raquo;"/>
+                 value="Отправить &raquo;"/>
           <div class="hide">
             <label>Do not fill out this field</label>
             <input name="spam_check" type="text" value="" />

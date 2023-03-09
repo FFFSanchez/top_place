@@ -34,8 +34,8 @@
             <li class="{% if view_name  == 'blog:services' %}current_page_item{% endif %}">
                 <a href="{% url 'blog:services' %}">Services</a>
             </li>
-            <li class="{% if view_name  == 'blog:contact' %}current_page_item{% endif %}">
-                <a href="{% url 'blog:contact' %}">Связь со мной</a>
+            <li class="{% if view_name  == 'contact:contact' %}current_page_item{% endif %}">
+                <a href="{% url 'contact:contact' %}">Связь со мной</a>
             </li>
         </ul>
         {% endwith %}
