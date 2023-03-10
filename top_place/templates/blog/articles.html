@@ -6,7 +6,7 @@
 {% block content %}
   <div id="main">
     <div id="content">
-      {% for article in articles %}
+      {% for article in page_obj %}
         <div class="article">
           <h3 class="article-title">
             <a href="#">{{ article.title }}</a>
@@ -19,12 +19,14 @@
         <div class="article-line"></div>
       {% endfor %}
       <!--end article-->
+      {% include "includes/paginator.html" %}
     </div>
     <!--end content-->
     <div id="sidebar">
       <div id="hire">
         <h3 class="sidebar-title">Фильтр по темам статей:</h3>
         <hr>
+        <br>
         {% for group in groups %}
           <a class="sidebar-button"
              href="{% url 'blog:articles_on_group' slug=group.slug %}">{{ group.title }}</a>
@@ -43,6 +45,7 @@
       <!--end recent-projects-->
     </div>
     <!--end sidebar-->
+    
   </div>
   <!--end main-->
 {% endblock content %}
