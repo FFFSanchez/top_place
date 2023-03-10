@@ -3,17 +3,21 @@
 {% block content %}
     <div id="featured-section">
         <h2>{{ text }}</h2>
-        <div id="circles" style="width:{% if choice_list.count == 2 %} 50%; {% elif choice_list.count == 3 %} 75%; {% else %} 100%; {% endif %}">
+        <div id="circles"
+             style="width:{% if choice_list.count == 2 %} 50%;
+                    {% elif choice_list.count == 3 %} 75%;
+                    {% else %} 100%;
+                    {% endif %}">
             {% for choice in choice_list %}
-            <div class="black-circle circle {% if forloop.first %}first{% endif %}">
-                <br>
-                <h3>
-                    <em>{{ choice }}</em>
-                </h3>
-                <a href="{% url 'polls:vote' choice_id=choice.id poll_id=poll.id %}">Vote!</a>
-                <p>Voices: {{ choice.voices }}</p>
-            </div>
-            <!--end circle-->
+                <div class="black-circle circle {% if forloop.first %}first{% endif %}">
+                    <br>
+                    <h3>
+                        <em>{{ choice }}</em>
+                    </h3>
+                    <a href="{% url 'polls:vote' choice_id=choice.id poll_id=poll.id %}">Vote!</a>
+                    <p>Voices: {{ choice.voices }}</p>
+                </div>
+                <!--end circle-->
             {% endfor %}
         </div>
         <!--end circles-->
@@ -32,11 +36,17 @@
         </div>
         <!--end frontpage-content-->
         <div id="latest-article" class="frontpage-section">
-            <h3>Latest Article</h3>
+            <div id="sidebar" style="float:right;">
+                <a class="sidebar-button" href="{% url 'blog:index' poll_id=0 %}">Следующий опрос</a>
+                <!--end hire-->
+            </div>
+            <br>
+            <br>
+            {% comment %} <h3>Latest Article</h3>
             <a class="article-title" href="#">[ADD ARTICLE TITLE]</a>
             <p class="meta">Posted By: [ADD AUTHOR NAME]</p>
             <p>[ADD ARTICLE OVERVIEW]</p>
-            <a class="read-more" href="#">Read More &raquo;</a>
+            <a class="read-more" href="#">Read More &raquo;</a> {% endcomment %}
         </div>
         <!--end frontpage-sidebar-->
     </div>
