@@ -7,17 +7,18 @@ from .utils import pag
 
 def index(request, poll_id=0):
     """Если 0 то будет рандомный опрос, если не 0, то будет тот же опрос"""
-    articles = Article.objects.all()
+    polls = Poll.objects.all()
     if poll_id == 0:
         poll = Poll.objects.order_by('?').first()
     else:
         poll = Poll.objects.get(pk=poll_id)
     already_voted = False
-    if UserPolls.objects.filter(
-            user=request.user
-            ).filter(
-            poll=get_object_or_404(Poll, id=poll.id)).exists():
-        already_voted = True
+    if request.user.is_authenticated:
+        if UserPolls.objects.filter(
+                user=request.user
+                ).filter(
+                poll=get_object_or_404(Poll, id=poll.id)).exists():
+            already_voted = True
     template = 'blog/index.html'
     # post_list = Post.objects.filter(author__following__user=request.user)
     choice_list = Choice.objects.filter(polls__id=poll.id)
@@ -26,6 +27,7 @@ def index(request, poll_id=0):
         'text': 'Социальные Статистические Кружочки',
         'articles': articles,
         'poll': poll,
+        'polls': polls,
         'choice_list': choice_list,
         'already_voted': already_voted
     }

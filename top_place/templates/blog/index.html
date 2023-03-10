@@ -27,13 +27,12 @@
     <!--end featured-section-->
     <div id="frontpage-main">
         <div id="overview" class="frontpage-section">
-            <h3>[ADD TITLE]</h3>
-            <p>[ADD OVERVIEW]</p>
+            <h3>Результаты опросов</h3>
+            <p>---</p>
             <ul class="blue-bullets">
-                <li>[ADD CONTENT]</li>
-                <li>[ADD CONTENT]</li>
-                <li>[ADD CONTENT]</li>
-                <li>[ADD CONTENT]</li>
+                {% for poll in polls %}
+                <li><b>{{ poll.title }}</b>: {% for choice in poll.choices.all %} [{{ choice.choice_value }} - {{ choice.voices }}] {% endfor %}</li>
+                {% endfor %}
             </ul>
         </div>
         <!--end frontpage-content-->
