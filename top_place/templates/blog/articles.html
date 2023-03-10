@@ -1,54 +1,44 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block title %}
-| Статьи
+  | Статьи
 {% endblock title %}
 {% block content %}
   <div id="main">
     <div id="content">
       {% for article in articles %}
-      <div class="article">
-        <h3 class="article-title">
-          <a href="#">{{ article.text }}</a>
-        </h3>
-        <h3 class="article-meta">{{ article.author }} / {{ article.pub_date|date:"d.m.Y H:i" }}</h3>
-        <p>
-          [ADD ARTICLE OVERVIEW] <a href="#" class="more-link">Читать... &raquo;</a>
-        </p>
-      </div>
-      <div class="article-line"></div>
+        <div class="article">
+          <h3 class="article-title">
+            <a href="#">{{ article.title }}</a>
+          </h3>
+          <h3 class="article-meta">{{ article.author }} / {{ article.pub_date|date:"d.m.Y H:i" }}</h3>
+          <p>
+            {{ article.text|truncatechars:70 }} <a href="#" class="more-link">Читать... &raquo;</a>
+          </p>
+        </div>
+        <div class="article-line"></div>
       {% endfor %}
-      <!--end article-->
-
-      <div class="article">
-        <h3 class="article-title">
-          <a href="#">[ADD ARTICLE TITLE]</a>
-        </h3>
-        <h3 class="article-meta">[ADD AUTHOR NAME] / [ADD PUBLICATION DATE]</h3>
-        <p>
-          [ADD ARTICLE OVERVIEW] <a href="#" class="more-link">Read Full Article &raquo;</a>
-        </p>
-      </div>
       <!--end article-->
     </div>
     <!--end content-->
     <div id="sidebar">
       <div id="hire">
-        <h3 class="sidebar-title">Want To Hire [ADD COMPANY NAME]?</h3>
-        <p>[ADD OVERVIEW]</p>
-        <a class="sidebar-button" href="#">Contact Us &raquo;</a>
+        <h3 class="sidebar-title">Фильтр по темам статей:</h3>
+        <hr>
+        {% for group in groups %}
+          <a class="sidebar-button"
+             href="{% url 'blog:articles_on_group' slug=group.slug %}">{{ group.title }}</a>
+        {% endfor %}
       </div>
       <!--end hire-->
+      <br>
+      <br>
+      <br>
       <div id="featured-project">
-        <h3>Featured Project</h3>
-        <p>[ADD OVERVIEW]</p>
-        <div class="portfolio-item">
-          <a href="#">
-            <img src="images/280x200.gif" alt="" />
-          </a>
-        </div>
-        <!--end portfolio-item-->
-        <a class="sidebar-button" href="#">All Projects &raquo;</a>
+        <h3>Нативная интеграция:</h3>
+        <p>ЙоуСиДжейПодс</p>
+        <p>Картины по номерам</p>
+        <p>Гель для увеличения</p>
       </div>
       <!--end recent-projects-->
     </div>

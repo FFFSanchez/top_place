@@ -5,6 +5,8 @@ User = get_user_model()
 
 
 class Article(models.Model):
+    title = models.CharField(max_length=200, blank=True,
+        null=True,)
     text = models.TextField(
         'Текст статьи',
         help_text='Введите текст статьи'

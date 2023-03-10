@@ -12,22 +12,22 @@
                 <a href="{% url 'blog:articles' %}">Статьи</a>
             </li>
             <li class="{% if view_name  == 'blog:portfolio' %}current_page_item{% endif %}">
-                <a href="{% url 'blog:portfolio' %}">Портфолио</a>
+                <a href="">Портфолио</a>
                 <ul class="sub-menu">
                     <li>
-                        <a href="{% url 'blog:project' %}">Latest Project</a>
+                        <a href="{% url 'blog:project' %}">Проект в работе</a>
                     </li>
                     <li>
-                        <a href="#">Branding</a>
+                        <a href="{% url 'blog:portfolio' %}">Проекты</a>
                     </li>
                     <li>
-                        <a href="#">Online Marketing</a>
+                        <a href="#">Технологии</a>
                     </li>
                     <li>
-                        <a href="#">Search Engine Optimization</a>
+                        <a href="#">Об авторе</a>
                     </li>
                     <li>
-                        <a href="#">Web Design</a>
+                        <a href="#">Топ гайды на Паджеро</a>
                     </li>
                 </ul>
             </li>

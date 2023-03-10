@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import Group, Article
 from polls.models import Poll, Choice
+from django.shortcuts import get_object_or_404
 
 
 def index(request):
@@ -35,9 +36,23 @@ def services(request):
 
 def articles(request):
     articles = Article.objects.all()
+    groups = Group.objects.all()
     template = 'blog/articles.html'
     context = {
-        'articles': articles
+        'articles': articles,
+        'groups': groups
+    }
+    return render(request, template, context)
+
+
+def articles_on_group(request, slug):
+    group = get_object_or_404(Group, slug=slug)
+    articles_on_group_list = Article.objects.filter(group=group)
+    groups = Group.objects.all()
+    template = 'blog/articles.html'
+    context = {
+        'articles': articles_on_group_list,
+        'groups': groups
     }
     return render(request, template, context)
 
