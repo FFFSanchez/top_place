@@ -19,13 +19,12 @@ class ContactForm(forms.Form):
         cl_data = super().clean()
 
         name = cl_data.get('name').strip()
-        # from_email = cl_data.get('email')
         from_email = cl_data.get('email')
         subject = cl_data.get('inquiry')
 
-        msg = f'{name} with email {from_email} said:'
-        msg += f'\n"{subject}"\n\n'
-        msg += cl_data.get('message')
+        msg = f'Пользователь {name} (его почта {from_email}) написал:'
+        msg += f'\n Тема письма: {subject}\n\n'
+        msg += f'Текст сообщения: {cl_data.get("message")}'
 
         return subject, msg
 

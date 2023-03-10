@@ -1,4 +1,8 @@
 from django.db import models
+from django.contrib.auth import get_user_model
+
+
+User = get_user_model()
 
 
 class Poll(models.Model):
@@ -7,7 +11,11 @@ class Poll(models.Model):
         help_text='Введите название опроса'
     )
     pub_date = models.DateTimeField(auto_now_add=True)
-    choices = models.ManyToManyField('Choice', blank=False, related_name='polls')
+    choices = models.ManyToManyField(
+        'Choice',
+        blank=False,
+        related_name='polls'
+    )
 
     class Meta:
         verbose_name = 'Опрос'
@@ -38,3 +46,24 @@ class Choice(models.Model):
 
     def __str__(self):
         return self.choice_value
+
+
+class UserPolls(models.Model):
+    user = models.ForeignKey(
+        User,
+        verbose_name='Юзер',
+        related_name='voted_user',
+        on_delete=models.CASCADE)
+    poll = models.ForeignKey(
+        Poll,
+        verbose_name='Опрос',
+        related_name='poll_voted_by_user',
+        on_delete=models.CASCADE
+    )
+    choice = models.ForeignKey(
+        Choice,
+        null=True,
+        verbose_name='Выбор',
+        related_name='poll_choice_by_user',
+        on_delete=models.SET_NULL
+    )

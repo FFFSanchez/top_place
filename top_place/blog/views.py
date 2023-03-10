@@ -5,19 +5,17 @@ from django.shortcuts import get_object_or_404
 from .utils import pag
 
 
-def index(request):
+def index(request, poll_id=0):
+    """Если 0 то будет рандомный опрос, если не 0, то будет тот же опрос"""
     articles = Article.objects.all()
-    # if poll_id == -1:
-    poll = Poll.objects.order_by('?').first()
-    # else:
-    #     poll = Poll.objects.get(pk=poll_id)
+    if poll_id == 0:
+        poll = Poll.objects.order_by('?').first()
+    else:
+        poll = Poll.objects.get(pk=poll_id)
     template = 'blog/index.html'
     # post_list = Post.objects.filter(author__following__user=request.user)
     choice_list = Choice.objects.filter(polls__id=poll.id)
-    # print(list(choice_list))
-    # print(choice_list)
-    # print(type(list(choice_list)))
-    # print(dir(choice_list))
+
     context = {
         'text': 'Социальные Статистические Кружочки',
         'articles': articles,

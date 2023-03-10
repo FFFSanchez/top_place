@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 import os
 from pathlib import Path
 from dotenv import load_dotenv, find_dotenv
+from django.urls import reverse
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -144,4 +145,7 @@ RECIPIENT_ADDRESS = os.environ['RECIPIENT_ADDRESS']
 
 
 LOGIN_URL = 'users:login'
-LOGIN_REDIRECT_URL = 'blog:index'
+LOGIN_REDIRECT_URL = '/0'
+# reverse(
+#     'blog:index', kwargs={'poll_id': 0}
+# )

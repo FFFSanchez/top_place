@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect
 from .forms import ContactForm
-from django.urls import reverse_lazy
 from django.contrib import messages
 
 

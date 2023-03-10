@@ -6,7 +6,7 @@
         {% with request.resolver_match.view_name as view_name %}
         <ul class="menu">
             <li class="{% if view_name  == 'blog:index' %}current_page_item{% endif %}">
-                <a href="{% url 'blog:index' %}">Главная</a>
+                <a href="{% url 'blog:index' poll_id=0 %}">Главная</a>
             </li>
             <li class="{% if view_name  == 'blog:articles' %}current_page_item{% endif %}">
                 <a href="{% url 'blog:articles' %}">Статьи</a>

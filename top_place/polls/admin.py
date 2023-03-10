@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Poll, Choice
+from .models import Poll, Choice, UserPolls
 
 
 class PollAdmin(admin.ModelAdmin):
@@ -21,5 +21,12 @@ class ChoiceAdmin(admin.ModelAdmin):
     search_fields = ('choice_value',)
 
 
+class UserPollsAdmin(admin.ModelAdmin):
+    list_display = ('id', 'user', 'poll', 'choice')
+    list_display_links = ('user',)
+    search_fields = ('poll',)
+
+
 admin.site.register(Poll, PollAdmin)
 admin.site.register(Choice, ChoiceAdmin)
+admin.site.register(UserPolls, UserPollsAdmin)
