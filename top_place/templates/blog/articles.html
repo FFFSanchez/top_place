@@ -13,7 +13,7 @@
           </h3>
           <h3 class="article-meta">{{ article.author }} / {{ article.pub_date|date:"d.m.Y H:i" }}</h3>
           <p>
-            {{ article.text|truncatechars:70 }} <a href="#" class="more-link">Читать... &raquo;</a>
+            {{ article.text|truncatechars:70 }} <a href="{% url 'blog:article_detail' article.id %}" class="more-link">Читать... &raquo;</a>
           </p>
         </div>
         <div class="article-line"></div>

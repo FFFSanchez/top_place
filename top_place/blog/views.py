@@ -57,6 +57,15 @@ def articles_on_group(request, slug):
     return render(request, template, context)
 
 
+def article_detail(request, article_id):
+    article = Article.objects.get(id=article_id)
+    template = 'blog/article_detail.html'
+    context = {
+        'article': article,
+    }
+    return render(request, template, context)
+
+
 def portfolio(request):
     template = 'blog/portfolio.html'
     context = {
