@@ -14,7 +14,9 @@
                     <h3>
                         <em>{{ choice }}</em>
                     </h3>
+                    {% if not already_voted %}
                     <a href="{% url 'polls:vote' choice_id=choice.id poll_id=poll.id %}">Vote!</a>
+                    {% endif %}
                     <p>Voices: {{ choice.voices }}</p>
                 </div>
                 <!--end circle-->

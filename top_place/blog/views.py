@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import Group, Article
-from polls.models import Poll, Choice
+from polls.models import Poll, Choice, UserPolls
 from django.shortcuts import get_object_or_404
 from .utils import pag
 
@@ -12,6 +12,12 @@ def index(request, poll_id=0):
         poll = Poll.objects.order_by('?').first()
     else:
         poll = Poll.objects.get(pk=poll_id)
+    already_voted = False
+    if UserPolls.objects.filter(
+            user=request.user
+            ).filter(
+            poll=get_object_or_404(Poll, id=poll.id)).exists():
+        already_voted = True
     template = 'blog/index.html'
     # post_list = Post.objects.filter(author__following__user=request.user)
     choice_list = Choice.objects.filter(polls__id=poll.id)
@@ -20,7 +26,8 @@ def index(request, poll_id=0):
         'text': 'Социальные Статистические Кружочки',
         'articles': articles,
         'poll': poll,
-        'choice_list': choice_list
+        'choice_list': choice_list,
+        'already_voted': already_voted
     }
     return render(request, template, context)
 
