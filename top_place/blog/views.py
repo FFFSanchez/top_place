@@ -9,6 +9,11 @@ def index(request, poll_id=0):
     """Если 0 то будет рандомный опрос, если не 0, то будет тот же опрос"""
     polls = Poll.objects.all()
     if poll_id == 0:
+        # UserPolls.poll.filter(user=request.user)
+        # Poll.objects.filter(poll_voted_by_user__user=request.user)
+        # Исключает объекты Поллов которые уже были ассоцированы с юзером
+
+        # exclude(poll_voted_by_user__user=request.user).
         poll = Poll.objects.order_by('?').first()
     else:
         poll = Poll.objects.get(pk=poll_id)
