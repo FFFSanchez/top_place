@@ -1,7 +1,7 @@
 {% extends "base.html" %}
-{% block title %}Войти{% endblock %}
+{% block title %}| Войти{% endblock %}
 {% block content %}
-  {% comment %} {% load user_filters %} {% endcomment %}
+{% load user_filters %}
     <div class="bootstrap">
       <div class="container py-5">
         <div class="row justify-content-center">
@@ -26,8 +26,7 @@
                         {% if field.field.required %}<span class="required text-danger">*</span>{% endif %}
                       </label>
                       <div>
-                        {% comment %} {{ field|addclass:'form-control' }}  {% endcomment %}
-                        {{ field }}
+                        {{ field|addclass:'form-control' }}
                         {% if field.help_text %}
                           <small id="{{ field.id_for_label }}-help" class="form-text text-muted">{{ field.help_text|safe }}</small>
                         {% endif %}

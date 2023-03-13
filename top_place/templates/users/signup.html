@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block title %}
-  Зарегистрироваться
+  | Зарегистрироваться
 {% endblock title %}
 {% block content %}
   <div class="bootstrap">
@@ -10,7 +10,7 @@
           <div class="card">
             <div class="card-header">Зарегистрироваться</div>
             <div class="card-body">
-              {# {% load user_filters %} Загружаем фильтры #}
+              {% load user_filters %}
               {% if form.errors %}
                 {% for field in form %}
                   {% for error in field.errors %}<div class="alert alert-danger">{{ error|escape }}</div>{% endfor %}
@@ -27,8 +27,7 @@
                       {% if field.field.required %}<span class="required text-danger">*</span>{% endif %}
                     </label>
                     {# К полю ввода добавляем атрибут class #}
-                    {% comment %} {{ field|addclass:'form-control' }}  {% endcomment %}
-                    {{ field }}
+                    {{ field|addclass:'form-control' }}
                     {% if field.help_text %}
                       <small id="{{ field.id_for_label }}-help" class="form-text text-muted">{{ field.help_text|safe }}</small>
                     {% endif %}

@@ -25,10 +25,12 @@
             {% else %}
                 <div class="black-circle circle first">
                     <br>
-                    <h3>
+                    <h3 style="margin-top:20px;">
                         <em>Опросы закончились!</em>
                     </h3>
-                    <a href="{% url 'contact:contact' %}">Оставьте отзыв :)</a>
+                    <a href="{% url 'contact:contact' %}">Оставь отзыв</a>
+                    <br>
+                    или предложи идею для опроса :)
                 </div>
             {% endif %}
         </div>
