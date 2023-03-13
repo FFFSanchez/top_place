@@ -22,4 +22,6 @@ urlpatterns = [
     path('contact/', include('contact.urls', namespace='contact')),
     path('polls/', include('polls.urls', namespace='polls')),
     path('auth/', include('users.urls')),
+    path('auth/', include('django.contrib.auth.urls')),
+    path('about/', include('pages_static.urls', namespace='pages_static')),
 ]

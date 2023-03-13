@@ -37,6 +37,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'pages_static.apps.PagesStaticConfig',
     'users.apps.UsersConfig',
     'polls.apps.PollsConfig',
     'contact.apps.ContactConfig',

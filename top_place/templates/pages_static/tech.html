@@ -1,0 +1,45 @@
+<!-- templates/about/tech.html -->
+{% extends "base.html" %}
+{% block title %}Технологии{% endblock %}
+{% block content %}
+  <div class="bootstrap">
+    {% comment %} Колонки с отступом сверху и снизу {% endcomment %}
+    <div class="container py-5">
+      <h3>Вот что я умею</h3>
+      <hr style="width:340px;">
+      <div class="row">
+        {% comment %}
+    Боковой блок со списком технологий 
+    Займет всю ширину блока на мобильном
+    и 25% при размерах экрана ≥768px
+        {% endcomment %}
+        <aside class="col-12 col-md-3">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Python</li>
+            <li class="list-group-item">Django</li>
+            <li class="list-group-item">SQL</li>
+            <li class="list-group-item">Django ORM</li>
+            <li class="list-group-item">Django Query lookups</li>
+            <li class="list-group-item">CSS/HTML</li>
+            <li class="list-group-item">SQLite3</li>
+            <li class="list-group-item">pythonanywhere</li>
+          </ul>
+        </aside>
+        {% comment %}
+    Статья  
+    Займет всю ширину блока на мобильном
+    и 75% при размерах экрана ≥768px
+        {% endcomment %}
+        <aside class="col-12 col-md-3">
+        </aside>
+        <article class="col-12 col-md-6">
+          <p style="float:right;">
+            На данном сайте использовалось: Создание моделей со связями один-к-одному и многие-ко-многим, лукапы и ORM запросы для логики работы голосований в опросах на главной странице.
+            <br>
+            А так же много чего еще, исходный код можно чекнуть в моём в гитхабе.
+          </p>
+        </article>
+      </div>
+    </div>
+  </div>
+{% endblock %}
