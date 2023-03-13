@@ -26,7 +26,7 @@
         {{ comment.text }}
       </p>
       -------------------------
-      <p>Дата комментария: {{ comment.created|date:"d.m.Y H:i" }}  </p>
+      <p>Дата комментария: {{ comment.created|date:"d.m.Y H:i" }} </p>
       {% if not forloop.last %}<hr>{% endif %}
     </div>
   </div>
