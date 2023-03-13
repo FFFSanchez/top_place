@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Article, Group
+from .models import Article, Group, Comment
 
 
 class ArticleAdmin(admin.ModelAdmin):
@@ -14,7 +14,14 @@ class ArticleAdmin(admin.ModelAdmin):
     list_editable = ('group',)
 
 
+class CommentAdmin(admin.ModelAdmin):
+    list_display = ('article', 'author', 'text', 'created')
+    search_fields = ('article',)
+    list_filter = ('author',)
+
+
 # При регистрации модели Post источником конфигурации для неё назначаем
 # класс PostAdmin
 admin.site.register(Article, ArticleAdmin)
+admin.site.register(Comment, CommentAdmin)
 admin.site.register(Group)

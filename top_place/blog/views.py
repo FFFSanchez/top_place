@@ -1,8 +1,10 @@
-from django.shortcuts import render
-from .models import Group, Article
+from django.shortcuts import render, redirect
+from .models import Group, Article, Comment
+from .forms import CommentForm
 from polls.models import Poll, Choice, UserPolls
 from django.shortcuts import get_object_or_404
 from .utils import pag
+from django.contrib.auth.decorators import login_required
 
 
 def index(request, poll_id=0):
@@ -81,9 +83,13 @@ def articles_on_group(request, slug):
 
 def article_detail(request, article_id):
     article = Article.objects.get(id=article_id)
+    form = CommentForm(request.POST or None)
+    comments = Comment.objects.filter(article_id=article_id)
     template = 'blog/article_detail.html'
     context = {
         'article': article,
+        'form': form,
+        'comments': comments
     }
     return render(request, template, context)
 
@@ -102,3 +108,15 @@ def project(request):
         'text': 'Кружочки'
     }
     return render(request, template, context)
+
+
+@login_required
+def add_comment(request, article_id):
+    article = Article.objects.get(id=article_id)
+    form = CommentForm(request.POST or None)
+    if form.is_valid():
+        comment = form.save(commit=False)
+        comment.author = request.user
+        comment.article = article
+        comment.save()
+    return redirect('blog:article_detail', article_id=article_id)

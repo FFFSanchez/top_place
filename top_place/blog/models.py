@@ -30,7 +30,7 @@ class Article(models.Model):
         help_text='Группа, к которой будет относиться статья'
     )
     # Поле для картинки (необязательное)
-    #image = models.ImageField(
+    # image = models.ImageField(
     #     'Картинка',
     #     upload_to='posts/',
     #     blank=True,
@@ -60,3 +60,31 @@ class Group(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Comment(models.Model):
+    article = models.ForeignKey(
+        Article,
+        on_delete=models.CASCADE,
+        related_name='comments',
+        verbose_name='Статья'
+    )
+    author = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        related_name='comments',
+        verbose_name='Автор'
+    )
+    text = models.TextField(
+        'Текст комментария',
+        help_text='Введите комментарий'
+    )
+    created = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name = 'Комментарий'
+        verbose_name_plural = 'Комментарии'
+        ordering = ('-created',)
+
+    def __str__(self):
+        return self.text[:10]
