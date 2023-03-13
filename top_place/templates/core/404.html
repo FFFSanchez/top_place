@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}| Да у вас 404{% endblock %}
+{% block content %}
+    <br>
+    <br>
+    <br>
+    <h1>Сорри, но это 404</h1>
+    <p>Страницы с адресом {{ path }} не существует</p>
+    <a href="{% url 'blog:index' poll_id=0 %}">Идите на главную</a>
+{% endblock %}
