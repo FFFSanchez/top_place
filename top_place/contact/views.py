@@ -10,7 +10,7 @@ def contact(request):
             mail = form.send()
             if mail:  # send_mail возвращает кол-во отправок 0 или другое число
                 messages.success(request, 'Письмо отправлено')
-                return redirect('contact')
+                return redirect('contact:contact')
             else:
                 messages.error(request, 'Ошибка отправки - fail_silently=True')
         else:

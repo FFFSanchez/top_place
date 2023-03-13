@@ -37,3 +37,4 @@ class ContactForm(forms.Form):
             from_email=settings.EMAIL_HOST_USER,
             recipient_list=[settings.RECIPIENT_ADDRESS]
         )
+        return True

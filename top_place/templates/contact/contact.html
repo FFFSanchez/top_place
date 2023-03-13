@@ -1,18 +1,16 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block title %}
-| Связь со мной
+  | Связь со мной
 {% endblock title %}
 {% block content %}
   <div id="main">
     <div id="contact-details">
       <h3 class="title">Будем на связи</h3>
-      <p>
-        Используй эту форму для отправки отзывов или предложений на мою почту.
-      </p>
+      <p>Используй эту форму для отправки отзывов или предложений на мою почту.</p>
       <h3>Контакты</h3>
       <h4>
-        Phone: <span>8-999-666-69-69</span>
+        Пачка: <span>lordsanchez</span>
       </h4>
       <h4>
         Email: <span>lordsanchez@yandex.ru</span>
@@ -26,11 +24,7 @@
       <form id="contact-form" method="post" action="{% url 'contact:contact' %}">
         {% csrf_token %}
         <!--{{ form.as_p }}
-        <input id="form_submit"
-                 class="submit"
-                 type="submit"
-                 name="submit"
-                 value="Submit &raquo;"/> -->
+        <input id="form_submit" class="submit" type="submit" name="submit" value="Submit &raquo;"/> -->
         <fieldset>
           <input id="form_name"
                  type="text"
@@ -50,7 +44,7 @@
                  value="Тема письма"
                  onFocus="if(this.value=='Тема письма'){this.value=''};"
                  onBlur="if(this.value==''){this.value='Тема письма'};"/>
-          <textarea id="form_message" rows="10" cols="40" name="message" ></textarea>
+          <textarea id="form_message" rows="10" cols="40" name="message"></textarea>
           <input id="form_submit"
                  class="submit"
                  type="submit"
@@ -62,6 +56,13 @@
           </div>
         </fieldset>
       </form>
+      {% if messages %}
+        <ul class="messages">
+          {% for message in messages %}
+            <li {% if message.tags %} class=" {{ message.tags }} "{% endif %}>{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
     </div>
     <!--end contact-form-container-->
   </div>
