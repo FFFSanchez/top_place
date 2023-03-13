@@ -6,35 +6,44 @@ from .utils import pag
 
 
 def index(request, poll_id=0):
-    """Если 0 то будет рандомный опрос, если не 0, то будет тот же опрос"""
-    polls = Poll.objects.all()
-    if poll_id == 0:
-        # UserPolls.poll.filter(user=request.user)
-        # Poll.objects.filter(poll_voted_by_user__user=request.user)
-        # Исключает объекты Поллов которые уже были ассоцированы с юзером
+    """Если 0 то будет рандомный опрос,
+    если не 0, то будет тот же опрос,
+    опрос выбирается исключая уже пройденные"""
 
-        # exclude(poll_voted_by_user__user=request.user).
-        poll = Poll.objects.order_by('?').first()
+    voices_vision = False
+    if poll_id == 0:
+        if request.user.is_authenticated:
+            # Исключает объекты Поллов которые уже были ассоцированы с юзером
+            poll = Poll.objects.exclude(
+                poll_voted_by_user__user=request.user
+                ).order_by('?').first()
+        else:
+            poll = Poll.objects.order_by('?').first()
     else:
         poll = Poll.objects.get(pk=poll_id)
+        voices_vision = True
     already_voted = False
-    if request.user.is_authenticated:
+    if request.user.is_authenticated and poll:
         if UserPolls.objects.filter(
                 user=request.user
                 ).filter(
                 poll=get_object_or_404(Poll, id=poll.id)).exists():
             already_voted = True
     template = 'blog/index.html'
-    # post_list = Post.objects.filter(author__following__user=request.user)
-    choice_list = Choice.objects.filter(polls__id=poll.id)
+    if poll:
+        choice_list = Choice.objects.filter(polls__id=poll.id)
+    else:
+        choice_list = None
+
+    polls = Poll.objects.all()
 
     context = {
         'text': 'Социальные Статистические Кружочки',
-        'articles': articles,
         'poll': poll,
         'polls': polls,
         'choice_list': choice_list,
-        'already_voted': already_voted
+        'already_voted': already_voted,
+        'voices_vision': voices_vision
     }
     return render(request, template, context)
 
