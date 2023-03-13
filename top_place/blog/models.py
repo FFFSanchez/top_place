@@ -30,12 +30,12 @@ class Article(models.Model):
         help_text='Группа, к которой будет относиться статья'
     )
     # Поле для картинки (необязательное)
-    # image = models.ImageField(
-    #     'Картинка',
-    #     upload_to='posts/',
-    #     blank=True,
-    #     null=True,
-    # )
+    image = models.ImageField(
+        'Картинка',
+        upload_to='articles/',
+        blank=True,
+        null=True,
+    )
     # Аргумент upload_to указывает директорию,
     # в которую будут загружаться пользовательские файлы.
 

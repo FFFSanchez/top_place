@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load thumbnail %}
 {% block title %}
   | Статьи
 {% endblock title %}
@@ -12,42 +13,44 @@
             <a href="#">{{ article.title }}</a>
           </h3>
           <h3 class="article-meta">{{ article.author }} / {{ article.pub_date|date:"d.m.Y H:i" }}</h3>
-          <p>
-            {{ article.text|truncatechars:70 }} <a href="{% url 'blog:article_detail' article.id %}" class="more-link">Читать... &raquo;</a>
-          </p>
-        </div>
-        <div class="article-line"></div>
-      {% endfor %}
-      <!--end article-->
-      {% include "includes/paginator.html" %}
-    </div>
-    <!--end content-->
-    <div id="sidebar">
-      <div id="hire">
-        <h3 class="sidebar-title">Фильтр по темам статей:</h3>
-        <hr>
-        <br>
-        {% for group in groups %}
-          <a class="sidebar-button"
-             href="{% url 'blog:articles_on_group' slug=group.slug %}">{{ group.title }}</a>
-        {% endfor %}
+          {% thumbnail article.image "450x250" crop="center" upscale=True as im %}
+          <img style='border:2px solid #000000' src="{{ im.url }}">
+        {% endthumbnail %}
+        <p>
+          {{ article.text|truncatechars:170 }} <a href="{% url 'blog:article_detail' article.id %}" class="more-link">Читать... &raquo;</a>
+        </p>
       </div>
-      <!--end hire-->
-      <br>
-      <br>
-      <br>
-      <div id="featured-project">
-        <h3>Нативная интеграция:</h3>
-        <hr>
-        <br>
-        <p>* ЙоуСиДжейПодс</p>
-        <p>* Картины по номерам</p>
-        <p>* Гель для увеличения</p>
-      </div>
-      <!--end recent-projects-->
-    </div>
-    <!--end sidebar-->
-    
+      <div class="article-line"></div>
+    {% endfor %}
+    <!--end article-->
+    {% include "includes/paginator.html" %}
   </div>
-  <!--end main-->
+  <!--end content-->
+  <div id="sidebar">
+    <div id="hire">
+      <h3 class="sidebar-title">Фильтр по темам статей:</h3>
+      <hr>
+      <br>
+      {% for group in groups %}
+        <a class="sidebar-button"
+           href="{% url 'blog:articles_on_group' slug=group.slug %}">{{ group.title }}</a>
+      {% endfor %}
+    </div>
+    <!--end hire-->
+    <br>
+    <br>
+    <br>
+    <div id="featured-project">
+      <h3>Нативная интеграция:</h3>
+      <hr>
+      <br>
+      <p>* ЙоуСиДжейПодс</p>
+      <p>* Картины по номерам</p>
+      <p>* Гель для увеличения</p>
+    </div>
+    <!--end recent-projects-->
+  </div>
+  <!--end sidebar-->
+</div>
+<!--end main-->
 {% endblock content %}

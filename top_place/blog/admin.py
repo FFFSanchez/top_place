@@ -5,7 +5,9 @@ from .models import Article, Group, Comment
 
 class ArticleAdmin(admin.ModelAdmin):
     # Перечисляем поля, которые должны отображаться в админке
-    list_display = ('pk', 'title', 'text', 'pub_date', 'author', 'group')
+    list_display = (
+        'pk', 'title', 'text', 'pub_date', 'author', 'group', 'image'
+        )
     # Добавляем интерфейс для поиска по тексту постов
     search_fields = ('text',)
     # Добавляем возможность фильтрации по дате
