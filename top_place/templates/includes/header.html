@@ -11,9 +11,9 @@
             <li class="{% if view_name  == 'blog:articles' %}current_page_item{% endif %}">
                 <a href="{% url 'blog:articles' %}">Статьи</a>
             </li>
-            <li class="{% if view_name  == 'blog:portfolio' %}current_page_item{% endif %}">
-                <a href="">Портфолио</a>
-                <ul class="sub-menu">
+            <li class="{% if view_name  == 'blog:portfolio' or view_name == 'blog:project' or view_name == 'pages_static:tech' or view_name == 'pages_static:author' %}current_page_item{% endif %}">
+                <a style="pointer-events:none;cursor:not-allowed;">Портфолио</a>
+                <ul class="sub-menu" style="z-index: 100;">
                     <li>
                         <a href="{% url 'blog:project' %}">Проект в работе</a>
                     </li>
