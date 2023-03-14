@@ -19,6 +19,9 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 
+admin.autodiscover()
+admin.site.enable_nav_sidebar = False
+
 handler404 = 'core.views.page_not_found'
 
 urlpatterns = [
